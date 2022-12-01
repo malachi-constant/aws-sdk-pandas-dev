@@ -1,0 +1,136 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.8.13, pytest-7.2.0, pluggy-1.0.0 -- /Users/hansonlu/.pyenv/versions/3.8.13/envs/aws-sdk-pandas-dev/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/hansonlu/work/awslabs/code/aws-sdk-pandas-dev, configfile: pyproject.toml
+plugins: timeout-2.1.0, rerunfailures-10.2, xdist-3.0.2, cov-4.0.0, anyio-3.6.2
+collecting ... collected 1828 items / 3 errors
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting tests/test_oracle.py _____________________
+ImportError while importing test module '/Users/hansonlu/work/awslabs/code/aws-sdk-pandas-dev/tests/test_oracle.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../../.pyenv/versions/3.8.13/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_oracle.py:5: in <module>
+    import oracledb
+E   ModuleNotFoundError: No module named 'oracledb'
+__________________ ERROR collecting tests/test_quicksight.py ___________________
+tests/test_quicksight.py:12: in <module>
+    client = boto3.client("quicksight")
+../../../../.pyenv/versions/3.8.13/envs/aws-sdk-pandas-dev/lib/python3.8/site-packages/boto3/__init__.py:92: in client
+    return _get_default_session().client(*args, **kwargs)
+../../../../.pyenv/versions/3.8.13/envs/aws-sdk-pandas-dev/lib/python3.8/site-packages/boto3/session.py:299: in client
+    return self._session.create_client(
+../../../../.pyenv/versions/3.8.13/envs/aws-sdk-pandas-dev/lib/python3.8/site-packages/botocore/session.py:951: in create_client
+    credentials = self.get_credentials()
+../../../../.pyenv/versions/3.8.13/envs/aws-sdk-pandas-dev/lib/python3.8/site-packages/botocore/session.py:507: in get_credentials
+    self._credentials = self._components.get_component(
+../../../../.pyenv/versions/3.8.13/envs/aws-sdk-pandas-dev/lib/python3.8/site-packages/botocore/credentials.py:2095: in load_credentials
+    creds = provider.load()
+../../../../.pyenv/versions/3.8.13/envs/aws-sdk-pandas-dev/lib/python3.8/site-packages/botocore/credentials.py:1033: in load
+    creds_dict = self._retrieve_credentials_using(credential_process)
+../../../../.pyenv/versions/3.8.13/envs/aws-sdk-pandas-dev/lib/python3.8/site-packages/botocore/credentials.py:1057: in _retrieve_credentials_using
+    raise CredentialRetrievalError(
+E   botocore.exceptions.CredentialRetrievalError: Error when retrieving credentials from custom-process: You need to authenicate with Midway. 
+E   Run the following command before retrying: mwinit --aea
+___________________ ERROR collecting tests/test_sqlserver.py ___________________
+ImportError while importing test module '/Users/hansonlu/work/awslabs/code/aws-sdk-pandas-dev/tests/test_sqlserver.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../../.pyenv/versions/3.8.13/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_sqlserver.py:7: in <module>
+    import pyodbc
+E   ModuleNotFoundError: No module named 'pyodbc'
+
+---------- coverage: platform darwin, python 3.8.13-final-0 ----------
+Name                                    Stmts   Miss  Cover
+-----------------------------------------------------------
+awswrangler/__init__.py                     6      0   100%
+awswrangler/__metadata__.py                 4      0   100%
+awswrangler/_config.py                    290     98    66%
+awswrangler/_data_types.py                580    539     7%
+awswrangler/_databases.py                 149    118    21%
+awswrangler/_utils.py                     200    156    22%
+awswrangler/athena/__init__.py              3      0   100%
+awswrangler/athena/_cache.py              116     85    27%
+awswrangler/athena/_read.py               221    186    16%
+awswrangler/athena/_utils.py              354    290    18%
+awswrangler/catalog/__init__.py             6      0   100%
+awswrangler/catalog/_add.py                48     31    35%
+awswrangler/catalog/_create.py            202    172    15%
+awswrangler/catalog/_definitions.py        50     38    24%
+awswrangler/catalog/_delete.py             48     29    40%
+awswrangler/catalog/_get.py               228    185    19%
+awswrangler/catalog/_utils.py              83     61    27%
+awswrangler/chime.py                       18     11    39%
+awswrangler/cloudwatch.py                 127    110    13%
+awswrangler/data_api/__init__.py            2      0   100%
+awswrangler/data_api/connector.py          29     17    41%
+awswrangler/data_api/rds.py                63     49    22%
+awswrangler/data_api/redshift.py           88     68    23%
+awswrangler/dynamodb/__init__.py            5      0   100%
+awswrangler/dynamodb/_delete.py            15      7    53%
+awswrangler/dynamodb/_read.py              75     58    23%
+awswrangler/dynamodb/_utils.py             13      6    54%
+awswrangler/dynamodb/_write.py             32     15    53%
+awswrangler/emr.py                        192    173    10%
+awswrangler/exceptions.py                  29      0   100%
+awswrangler/lakeformation/__init__.py       3      0   100%
+awswrangler/lakeformation/_read.py         59     41    31%
+awswrangler/lakeformation/_utils.py       125     97    22%
+awswrangler/mysql.py                       88     66    25%
+awswrangler/neptune/__init__.py             3      0   100%
+awswrangler/neptune/_utils.py              58     58     0%
+awswrangler/neptune/client.py             134    100    25%
+awswrangler/neptune/gremlin_parser.py      34     27    21%
+awswrangler/neptune/neptune.py            154    116    25%
+awswrangler/opensearch/__init__.py          4      0   100%
+awswrangler/opensearch/_read.py            55     44    20%
+awswrangler/opensearch/_utils.py           40     26    35%
+awswrangler/opensearch/_write.py          172    139    19%
+awswrangler/oracle.py                     117     78    33%
+awswrangler/postgresql.py                  83     62    25%
+awswrangler/quicksight/__init__.py          6      0   100%
+awswrangler/quicksight/_cancel.py          16      9    44%
+awswrangler/quicksight/_create.py          93     78    16%
+awswrangler/quicksight/_delete.py          73     58    21%
+awswrangler/quicksight/_describe.py        56     45    20%
+awswrangler/quicksight/_get_list.py        93     64    31%
+awswrangler/quicksight/_utils.py           20     12    40%
+awswrangler/redshift.py                   311    269    14%
+awswrangler/s3/__init__.py                 16      0   100%
+awswrangler/s3/_copy.py                    71     59    17%
+awswrangler/s3/_delete.py                  61     45    26%
+awswrangler/s3/_describe.py                48     33    31%
+awswrangler/s3/_download.py                16      9    44%
+awswrangler/s3/_fs.py                     315    256    19%
+awswrangler/s3/_list.py                   117    100    15%
+awswrangler/s3/_merge_upsert_table.py      45     33    27%
+awswrangler/s3/_read.py                   105     85    19%
+awswrangler/s3/_read_excel.py              14      6    57%
+awswrangler/s3/_read_parquet.py           285    242    15%
+awswrangler/s3/_read_text.py               76     55    28%
+awswrangler/s3/_select.py                  58     42    28%
+awswrangler/s3/_upload.py                  16      9    44%
+awswrangler/s3/_wait.py                    35     23    34%
+awswrangler/s3/_write.py                   51     41    20%
+awswrangler/s3/_write_concurrent.py        35     22    37%
+awswrangler/s3/_write_dataset.py           98     82    16%
+awswrangler/s3/_write_excel.py             15      7    53%
+awswrangler/s3/_write_parquet.py          153    124    19%
+awswrangler/s3/_write_text.py             200    180    10%
+awswrangler/secretsmanager.py              17      8    53%
+awswrangler/sqlserver.py                   98     62    37%
+awswrangler/sts.py                         15      7    53%
+awswrangler/timestream.py                 157    132    16%
+-----------------------------------------------------------
+TOTAL                                    7190   5553    23%
+
+=========================== short test summary info ============================
+ERROR tests/test_oracle.py
+ERROR tests/test_quicksight.py - botocore.exceptions.CredentialRetrievalError...
+ERROR tests/test_sqlserver.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!
+============================== 3 errors in 3.57s ===============================
